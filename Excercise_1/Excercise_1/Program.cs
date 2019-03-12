@@ -64,15 +64,16 @@ namespace Excercise_1
             //    Console.WriteLine("----------------------------------------");
             //};
 
-            //ComposedMission mission1 = new ComposedMission("mission1")
-            //    .Add(funcList["Square"])
-            //    .Add(funcList["Sqrt"]);
+            ComposedMission mission1 = new ComposedMission("mission1")
+                .Add(funcList["Square"])
+                .Add(funcList["Sqrt"]);
 
-            //ComposedMission mission2 = new ComposedMission("mission2")
-            //    .Add(funcList["Triple"])
-            //    .Add(funcList["Plus2"])
-            //    .Add(funcList["Square"]);
-
+            ComposedMission mission2 = new ComposedMission("mission2")
+                .Add(funcList["Triple"])
+                .Add(funcList["Plus2"])
+                .Add(funcList["Square"]);
+           Console.WriteLine( "11 ?= " + mission1.Calculate(11)); 
+            Console.WriteLine("121 ?= " + mission2.Calculate(3)); 
             //SingleMission mission3 = new SingleMission(funcList["Double"], "mission3");
 
             //ComposedMission mission4 = new ComposedMission("mission4")
