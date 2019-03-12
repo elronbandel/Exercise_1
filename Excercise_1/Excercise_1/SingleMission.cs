@@ -14,13 +14,16 @@ namespace Excercise_1
         public SingleMission(Func<double,double> func,string name)
         {
             Name = name;
+            Type = "Single";
             calc = new Calculation(func);
         }
         public String Name { get; }
         public String Type { get; }
         public double Calculate(double value)
         {
-            return calc(value);
+            value = calc(value);
+            OnCalculate?.Invoke(this, value);
+            return value;
         }
     }
 }

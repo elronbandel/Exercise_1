@@ -37,32 +37,32 @@ namespace Excercise_1
 
             PrintAvailableFunctions(funcList);
 
-            //// This handler will output the screen every mission that was activated and it's value
-            //EventHandler<double> LogHandler = (sender, val) =>
-            //{
-            //    IMission mission = sender as IMission;
+            // This handler will output the screen every mission that was activated and it's value
+            EventHandler<double> LogHandler = (sender, val) =>
+            {
+                IMission mission = sender as IMission;
 
-            //    if (mission != null)
-            //    {
-            //        Console.WriteLine($"Mission of Type: {mission.Type} with the Name {mission.Name} returned {val}");
-            //    }
-            //};
+                if (mission != null)
+                {
+                    Console.WriteLine($"Mission of Type: {mission.Type} with the Name {mission.Name} returned {val}");
+                }
+            };
 
-            //EventHandler<double> SqrtHandler = (sender, val) =>
-            //{
-            //    // This function will Create a sqrt mission and will continue to sqrt until a number less than 2
-            //    SingleMission sqrtMission = new SingleMission(funcList["Sqrt"], "SqrtMission");
+            EventHandler<double> SqrtHandler = (sender, val) =>
+            {
+                // This function will Create a sqrt mission and will continue to sqrt until a number less than 2
+                SingleMission sqrtMission = new SingleMission(funcList["Sqrt"], "SqrtMission");
 
-            //    double newVal;
-            //    do
-            //    {
-            //        newVal = sqrtMission.Calculate(val);     // getting the new Val
-            //        Console.WriteLine($"sqrt({val}) = {newVal}");
+                double newVal;
+                do
+                {
+                    newVal = sqrtMission.Calculate(val);     // getting the new Val
+                    Console.WriteLine($"sqrt({val}) = {newVal}");
 
-            //        val = newVal;                           // Storing the new Val;
-            //    } while (val > 2);
-            //    Console.WriteLine("----------------------------------------");
-            //};
+                    val = newVal;                           // Storing the new Val;
+                } while (val > 2);
+                Console.WriteLine("----------------------------------------");
+            };
 
             ComposedMission mission1 = new ComposedMission("mission1")
                 .Add(funcList["Square"])
@@ -74,8 +74,6 @@ namespace Excercise_1
                 .Add(funcList["Square"]);
 
             SingleMission mission3 = new SingleMission(funcList["Double"], "mission3");
-
-            Console.WriteLine("10 ?= " + mission3.Calculate(5));
 
             ComposedMission mission4 = new ComposedMission("mission4")
                 .Add(funcList["Triple"])
@@ -89,22 +87,21 @@ namespace Excercise_1
 
             var missionList = new List<IMission>() { mission1, mission2, mission3, mission4, mission5 };
 
-            //foreach (var m in missionList)
-            //{
-            //    m.OnCalculate += LogHandler;
-            //    m.OnCalculate += SqrtHandler;
-            //}
+            foreach (var m in missionList)
+            {
+                m.OnCalculate += LogHandler;
+                m.OnCalculate += SqrtHandler;
+            }
 
-            //missionList.Add(mission2);
-            //missionList.Add(mission1);
-            //missionList.Add(mission3);
-            //missionList.Add(mission5);
+            missionList.Add(mission2);
+            missionList.Add(mission1);
+            missionList.Add(mission3);
+            missionList.Add(mission5);
 
-            //RunMissions(missionList, 100);
-            //RunMissions(missionList, 2);
+            RunMissions(missionList, 100);
+            RunMissions(missionList, 2);
 
-            //PrintAvailableFunctions(funcList);
-            Console.ReadKey();
+            PrintAvailableFunctions(funcList);
         }
     }
 }

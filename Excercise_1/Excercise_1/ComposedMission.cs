@@ -34,7 +34,7 @@ namespace Excercise_1
                 next.push(newCalc);
             }
         }
-        public double Calculate(double var)
+        public virtual double Calculate(double var)
         {
             var = calc(var);
             if (next != null)
@@ -51,6 +51,7 @@ namespace Excercise_1
         public ComposedMission(string name)
         {
             Name = name;
+            Type = "Composed";
         }
         public String Name { get; }
         public String Type { get; }
@@ -58,6 +59,13 @@ namespace Excercise_1
         {
             push(func);
             return this;
+        }
+        public override double Calculate(double value)
+        {
+            value = base.Calculate(value);
+            
+            OnCalculate?.Invoke(this, value);
+            return value;
         }
     }
 }
