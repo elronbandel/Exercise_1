@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComposedMission.cs" />
     <Compile Include="IMission.cs" />
     <Compile Include="MissionContainer.cs" />
     <Compile Include="Program.cs" />
