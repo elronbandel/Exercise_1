@@ -72,21 +72,22 @@ namespace Excercise_1
                 .Add(funcList["Triple"])
                 .Add(funcList["Plus2"])
                 .Add(funcList["Square"]);
-           Console.WriteLine( "11 ?= " + mission1.Calculate(11)); 
-            Console.WriteLine("121 ?= " + mission2.Calculate(3)); 
-            //SingleMission mission3 = new SingleMission(funcList["Double"], "mission3");
 
-            //ComposedMission mission4 = new ComposedMission("mission4")
-            //    .Add(funcList["Triple"])
-            //    .Add(funcList["Stam"])              // Notice that this function does not exist and still it works
-            //    .Add(funcList["Plus2"]);
+            SingleMission mission3 = new SingleMission(funcList["Double"], "mission3");
+
+            Console.WriteLine("10 ?= " + mission3.Calculate(5));
+
+            ComposedMission mission4 = new ComposedMission("mission4")
+                .Add(funcList["Triple"])
+                .Add(funcList["Stam"])              // Notice that this function does not exist and still it works
+                .Add(funcList["Plus2"]);
 
             PrintAvailableFunctions(funcList);
 
             funcList["Stam"] = val => val + 100;
-            //SingleMission mission5 = new SingleMission(funcList["Stam"], "mission5");
+            SingleMission mission5 = new SingleMission(funcList["Stam"], "mission5");
 
-            //var missionList = new List<IMission>() { mission1, mission2, mission3, mission4, mission5 };
+            var missionList = new List<IMission>() { mission1, mission2, mission3, mission4, mission5 };
 
             //foreach (var m in missionList)
             //{
