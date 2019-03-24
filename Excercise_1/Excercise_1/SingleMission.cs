@@ -10,8 +10,8 @@ namespace Excercise_1
     {
         public event EventHandler<double> OnCalculate;
         private Calculation calc;
-    
-        public SingleMission(Func<double,double> func,string name)
+
+        public SingleMission(Func<double, double> func, string name)
         {
             Name = name;
             Type = "Single";

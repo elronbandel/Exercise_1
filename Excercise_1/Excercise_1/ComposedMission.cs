@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace Excercise_1
 {
-
     delegate double Calculation(double var);
-
+    //NestedCalculation is class that uses the interprter design pattern to evalute calculations
     class NestedCalculation
     {
         private NestedCalculation next;
         private Calculation calc;
         protected NestedCalculation()
         {
-            calc = var => var;
+            calc = var => var; //as default the expression will do nothing.
             next = null;
         }
         private NestedCalculation(Func<double, double> newCalc)
@@ -36,7 +35,7 @@ namespace Excercise_1
         }
         public virtual double Calculate(double var)
         {
-            var = calc(var);
+            var = calc(var); //caclulate the value according to this node opration than apply on other nodes
             if (next != null)
             {
                 var = next.Calculate(var);
@@ -63,7 +62,7 @@ namespace Excercise_1
         public override double Calculate(double value)
         {
             value = base.Calculate(value);
-            
+
             OnCalculate?.Invoke(this, value);
             return value;
         }

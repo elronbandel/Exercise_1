@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace Excercise_1
 {
-
-
     class FunctionsContainer
     {
         private Dictionary<String, Func<double, double>> functions;
@@ -44,7 +42,4 @@ namespace Excercise_1
             return names;
         }
     }
-
-
-
-    }
+}

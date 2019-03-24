@@ -10,7 +10,7 @@ namespace Excercise_1
     {
         event EventHandler<double> OnCalculate;  // An Event of when a mission is activated
 
-        String Name { get;}
+        String Name { get; }
         String Type { get; }
 
         double Calculate(double value);
